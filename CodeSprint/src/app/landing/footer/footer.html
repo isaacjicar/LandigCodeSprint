@@ -70,42 +70,48 @@
 
     </div>
 
-    <!-- Sección newsletter: input de email y botón suscribirse -->
+  <!-- Sección newsletter: input de email y botón suscribirse -->
     <div class="mb-12 p-8 rounded-2xl newsletter-card">
       <div class="max-w-2xl mx-auto text-center">
         <h3 class="text-white mb-2 text-2xl font-bold font-display">Mantente actualizado</h3>
         <p class="text-white/60 mb-6 text-sm">
           Recibe las últimas noticias sobre tecnología y nuestros proyectos
         </p>
-        <!-- Input enlazado a email con ngModel -->
-        <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-          <input
-            type="email"
-            placeholder="tu@email.com"
-            [(ngModel)]="email"
-            class="flex-1 px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-white/40 focus:outline-none focus:border-[#0d9488] transition-colors text-sm"/>
-          <button
-            aria-label="Suscribirse al newsletter"
-            title="Suscribirse al newsletter"
-            class="px-6 py-3 rounded-full bg-[#0d9488] text-white flex items-center justify-center gap-2 text-sm font-semibold hover:bg-[#0d9488]/90 transition-colors">
-            Suscribirse
-            <lucide-icon [img]="Send" [size]="16" class="text-white"></lucide-icon>
-          </button>
-        </div>
-      </div>
-    </div>
 
-    <!-- Barra inferior: copyright y links legales -->
-    <div class="pt-8 border-t border-white/10">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-white/40 text-sm">© 2026 CodeSprint. Todos los derechos reservados.</p>
-        <div class="flex gap-6" role="list">
-          @for (link of legalLinks; track link.href) {
-            <a role="listitem" [href]="link.href" class="text-white/40 hover:text-[#0d9488] transition-colors text-sm">
-              {{ link.label }}
-            </a>
+        @if (!enviado()) {
+          <!-- Input enlazado a email con ngModel -->
+          <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="tu@email.com"
+              [(ngModel)]="email"
+              class="flex-1 px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-white/40 focus:outline-none focus:border-[#0d9488] transition-colors text-sm"/>
+            <button
+              (click)="suscribirse()"
+              [disabled]="enviando() || !email"
+              aria-label="Suscribirse al newsletter"
+              title="Suscribirse al newsletter"
+              class="px-6 py-3 rounded-full bg-[#0d9488] text-white flex items-center justify-center gap-2 text-sm font-semibold hover:bg-[#0d9488]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+              {{ enviando() ? 'Enviando...' : 'Suscribirse' }}
+              <lucide-icon [img]="Send" [size]="16" class="text-white"></lucide-icon>
+            </button>
+          </div>
+
+          <!-- Mensaje de error -->
+          @if (error()) {
+            <p class="text-red-400 text-xs mt-3">Hubo un error. Intenta de nuevo.</p>
           }
-        </div>
+
+        } @else {
+          <!-- Confirmación de suscripción exitosa -->
+          <div class="flex items-center justify-center gap-2 text-[#0d9488]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span class="text-sm font-semibold">¡Suscrito exitosamente!</span>
+          </div>
+        }
+
       </div>
     </div>
 
