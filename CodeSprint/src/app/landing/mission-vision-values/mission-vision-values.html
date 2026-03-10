@@ -1,0 +1,84 @@
+<section id="mission-vision-values" class="relative bg-[#f0fdf4] py-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- Encabezado centrado de la sección -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-500/10 border border-teal-500/20 mb-6">
+        <span class="text-[#0d9488] text-xs font-semibold tracking-widest">QUIÉNES SOMOS</span>
+      </div>
+      <h2 class="text-[#1a1a1a] mb-6 font-display text-[clamp(32px,4vw,48px)] font-bold leading-tight">
+        Construimos con propósito
+      </h2>
+      <p class="text-[#6b7280] max-w-3xl mx-auto leading-relaxed text-[17px]">
+        Nuestro compromiso va más allá del código. Creamos productos que transforman negocios y mejoran vidas.
+      </p>
+    </div>
+
+    <!-- Cards de Misión y Visión en grid 2 columnas -->
+    <div class="grid lg:grid-cols-2 gap-6 mb-16">
+
+      <!-- Card Misión -->
+      <div class="bg-white rounded-[20px] p-10 card-hover mission-card">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 rounded-lg flex items-center justify-center bg-teal-500/10">
+            <lucide-icon [img]="Target" [size]="32" class="text-[#0d9488]"></lucide-icon>
+          </div>
+          <span class="text-[#0d9488] text-xs font-semibold tracking-widest">MISIÓN</span>
+        </div>
+        <p class="text-[#1a1a1a] font-display text-[22px] font-normal leading-relaxed">
+          Desarrollar soluciones tecnológicas innovadoras que transformen la manera en que las personas
+          y empresas interactúan con el mundo digital.
+        </p>
+      </div>
+
+      <!-- Card Visión -->
+      <div class="bg-white rounded-[20px] p-10 card-hover vision-card">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 rounded-lg flex items-center justify-center bg-emerald-500/10">
+            <lucide-icon [img]="Eye" [size]="32" class="text-[#10b981]"></lucide-icon>
+          </div>
+          <span class="text-[#10b981] text-xs font-semibold tracking-widest">VISIÓN</span>
+        </div>
+        <p class="text-[#1a1a1a] font-display text-[22px] font-normal leading-relaxed">
+          Ser el equipo de desarrollo referente en Latinoamérica, reconocido por la calidad de nuestro
+          código, la agilidad de entrega y el impacto real de nuestros productos.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Badge separador antes del grid de valores -->
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-500/10 border border-teal-500/20">
+        <span class="text-[#0d9488] text-xs font-semibold tracking-widest">NUESTROS VALORES</span>
+      </div>
+    </div>
+
+    <!-- Grid de valores: 4 columnas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-20">
+      @for (valor of valores; track valor.title) {
+        <div class="bg-white rounded-2xl p-7 text-center relative overflow-hidden valor-card">
+          <!-- Línea de acento verde en el borde superior -->
+          <div class="absolute top-0 left-0 right-0 h-0.75 valor-accent"></div>
+          <div class="flex justify-center mb-4">
+            <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-teal-500/10">
+              <lucide-icon [img]="valor.icon" [size]="28" class="text-[#0d9488]"></lucide-icon>
+            </div>
+          </div>
+          <h3 class="text-[#1a1a1a] mb-3 font-bold text-lg">{{ valor.title }}</h3>
+          <p class="text-[#6b7280] text-[13px] leading-relaxed">{{ valor.description }}</p>
+        </div>
+      }
+    </div>
+
+  </div>
+
+  <!-- Divisor SVG en ola hacia la siguiente sección -->
+  <div class="absolute bottom-0 left-0 right-0 pointer-events-none">
+    <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-20" preserveAspectRatio="none">
+      <path d="M0 0C240 26.667 480 40 720 40C960 40 1200 26.667 1440 0V80H0V0Z" fill="#ecfdf5"/>
+    </svg>
+  </div>
+
+</section>
