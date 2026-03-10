@@ -1,0 +1,96 @@
+/* Navbar: fondo semitransparente con blur */
+nav {
+  background: rgba(15, 23, 42, 0.75);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Navbar al hacer scroll: más opaco y con sombra */
+nav.scrolled {
+  background: rgba(15, 23, 42, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Ventana de código decorativa: glassmorphism */
+.code-window {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+}
+
+/* Badge "Empresa de desarrollo" encima del título */
+.hero-badge {
+  background: rgba(13, 148, 136, 0.20);
+  border: 1px solid rgba(13, 148, 136, 0.40);
+}
+
+/* Sombra verde del botón CTA principal */
+.hero-btn-primary {
+  box-shadow: 0 12px 35px rgba(13, 148, 136, 0.45);
+}
+
+/* Etiquetas de confianza debajo de los botones */
+.trust-badge {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Velocidades individuales de cada estrella fugaz */
+.shooting-star-1 { animation-duration: 10s; }
+.shooting-star-2 { animation-duration: 12s; animation-delay: 3s; }
+.shooting-star-3 { animation-duration: 15s; animation-delay: 6s; }
+
+/* Columnas del fondo: suben y bajan en loop */
+.column-animate {
+  animation: columnMove 4s ease-in-out infinite alternate;
+  align-self: flex-end;
+}
+@keyframes columnMove {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-30px); }
+}
+
+/* Estrellas en 3 niveles de brillo según profundidad */
+.star-far  { background: rgba(255, 255, 255, 0.25); }
+.star-mid  { background: rgba(255, 255, 255, 0.45); }
+.star-near {
+  background: rgba(255, 255, 255, 0.70);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+}
+
+/* Parpadeo de estrellas: cambia opacidad en loop */
+.star-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; }
+  50%       { opacity: 0.8; }
+}
+
+/* Bolas de luz del fondo: flotan verticalmente en loop */
+.ball-animate {
+  animation: ballFloat 8s ease-in-out infinite alternate;
+}
+@keyframes ballFloat {
+  from { transform: translateY(-30px); }
+  to   { transform: translateY(30px); }
+}
+
+/* Estrella fugaz: línea diagonal con degradado que cruza la pantalla */
+.shooting-star {
+  width: 180px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(180,255,240,0.6), white);
+  transform: rotate(36deg);
+  animation: shoot 10s linear infinite;
+}
+@keyframes shoot {
+  0%   { transform: rotate(36deg) translateX(0)      translateY(0);    opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: rotate(36deg) translateX(-200px) translateY(150px); opacity: 0; }
+}
