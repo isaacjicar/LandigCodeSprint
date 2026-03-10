@@ -1,0 +1,88 @@
+<section id="projects" class="py-24 bg-[#f0fdf4]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- Encabezado centrado de la sección -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0d9488]/10 border border-[#0d9488]/20 mb-4">
+        <span class="text-[#0d9488] text-[12px] font-semibold tracking-[0.05em]">PORTAFOLIO</span>
+      </div>
+      <h2 class="text-[#1a1a1a] mt-4 font-bold leading-tight font-display text-5xl">
+        Proyectos Destacados
+      </h2>
+      <p class="mt-4 text-[#6b7280] max-w-2xl mx-auto text-lg leading-relaxed">
+        Descubre algunos de los proyectos en los que hemos trabajado recientemente
+      </p>
+    </div>
+
+    <!-- Grid de proyectos: 2 columnas -->
+    <div class="grid md:grid-cols-2 gap-8">
+      @for (project of projects; track project.title) {
+
+        <!-- Card: sombra al hover -->
+        <div class="group relative bg-white rounded-2xl overflow-hidden border border-black/10 hover:shadow-2xl transition-all duration-300">
+
+          <!-- Imagen con zoom al hover -->
+          <div class="relative h-64 overflow-hidden">
+            <img
+              [src]="project.image"
+              [alt]="project.title"
+              [title]="project.title"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              (error)="onImageError($event)"
+            />
+
+            <!-- Degradado oscuro sobre la imagen -->
+            <div class="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent"></div>
+
+            <!-- Overlay verde con botón GitHub, visible al hover -->
+            <div class="absolute inset-0 bg-[#0d9488]/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+              <button
+                title="Ver en GitHub"
+                aria-label="Ver en GitHub"
+                class="w-12 h-12 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors cursor-pointer">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 text-white"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Badge de categoría sobre la imagen -->
+            <div class="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-[#0d9488] text-white text-[12px] font-semibold">
+              {{ project.category }}
+            </div>
+          </div>
+
+          <!-- Título, descripción y tags de tecnologías -->
+          <div class="p-6">
+            <h3 class="text-[#1a1a1a] mb-2 font-bold font-display text-2xl">
+              {{ project.title }}
+            </h3>
+            <p class="text-[#6b7280] mb-4 text-[15px] leading-relaxed">
+              {{ project.description }}
+            </p>
+            <!-- Tags de tecnologías del proyecto -->
+            <div class="flex flex-wrap gap-2">
+              @for (tag of project.tags; track tag) {
+                <span class="px-3 py-1 rounded-full bg-[#f0fdf4] text-[#0d9488] text-[12px] font-medium">
+                  {{ tag }}
+                </span>
+              }
+            </div>
+          </div>
+
+        </div>
+      }
+    </div>
+
+  </div>
+</section>
