@@ -1,0 +1,113 @@
+<footer class="bg-[#0f172a] text-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+
+    <!-- Grid principal: 4 columnas  -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+
+      <!-- Logo y descripción corta de la empresa -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+            <lucide-icon [img]="Code2" [size]="20" class="text-white"></lucide-icon>
+          </div>
+          <span class="text-white text-xl font-bold font-display">CodeSprint</span>
+        </div>
+        <p class="text-white/60 mb-6 text-sm leading-relaxed">
+          Transformamos ideas en código que impulsa negocios. Desarrollo de software de calidad con tecnologías modernas.
+        </p>
+      </div>
+
+      <!-- Links de navegación interna  -->
+      <div>
+        <h4 class="text-white mb-4 text-lg font-bold font-display">Empresa</h4>
+        <ul class="space-y-3" role="list">
+          @for (item of companyLinks; track item.href) {
+            <li role="listitem">
+              <a [href]="item.href" class="text-white/60 hover:text-[#0d9488] transition-colors text-sm">
+                {{ item.label }}
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Lista de servicios  -->
+      <div>
+        <h4 class="text-white mb-4 text-lg font-bold font-display">Servicios</h4>
+        <ul class="space-y-3" role="list">
+          @for (item of serviceLinks; track item.label) {
+            <li role="listitem">
+              <a href="#" class="text-white/60 hover:text-[#0d9488] transition-colors text-sm">
+                {{ item.label }}
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Datos de contacto: email, teléfono y ubicación -->
+      <div>
+        <h4 class="text-white mb-4 text-lg font-bold font-display">Contacto</h4>
+        <ul class="space-y-4" role="list">
+          <li role="listitem" class="flex items-start gap-3">
+            <lucide-icon [img]="Mail" [size]="20" class="text-[#0d9488] shrink-0 mt-0.5"></lucide-icon>
+            <a href="mailto:codesprint@gmail.com" class="text-white/60 hover:text-[#0d9488] transition-colors text-sm">
+              codesprint@gmail.com
+            </a>
+          </li>
+          <li role="listitem" class="flex items-start gap-3">
+            <lucide-icon [img]="Phone" [size]="20" class="text-[#0d9488] shrink-0 mt-0.5"></lucide-icon>
+            <a href="tel:+50655532334" class="text-white/60 hover:text-[#0d9488] transition-colors text-sm">
+              +506 5553 2334
+            </a>
+          </li>
+          <li role="listitem" class="flex items-start gap-3">
+            <lucide-icon [img]="MapPin" [size]="20" class="text-[#0d9488] shrink-0 mt-0.5"></lucide-icon>
+            <span class="text-white/60 text-sm">San José</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Sección newsletter: input de email y botón suscribirse -->
+    <div class="mb-12 p-8 rounded-2xl newsletter-card">
+      <div class="max-w-2xl mx-auto text-center">
+        <h3 class="text-white mb-2 text-2xl font-bold font-display">Mantente actualizado</h3>
+        <p class="text-white/60 mb-6 text-sm">
+          Recibe las últimas noticias sobre tecnología y nuestros proyectos
+        </p>
+        <!-- Input enlazado a email con ngModel -->
+        <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input
+            type="email"
+            placeholder="tu@email.com"
+            [(ngModel)]="email"
+            class="flex-1 px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-white/40 focus:outline-none focus:border-[#0d9488] transition-colors text-sm"/>
+          <button
+            aria-label="Suscribirse al newsletter"
+            title="Suscribirse al newsletter"
+            class="px-6 py-3 rounded-full bg-[#0d9488] text-white flex items-center justify-center gap-2 text-sm font-semibold hover:bg-[#0d9488]/90 transition-colors">
+            Suscribirse
+            <lucide-icon [img]="Send" [size]="16" class="text-white"></lucide-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra inferior: copyright y links legales -->
+    <div class="pt-8 border-t border-white/10">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-white/40 text-sm">© 2026 CodeSprint. Todos los derechos reservados.</p>
+        <div class="flex gap-6" role="list">
+          @for (link of legalLinks; track link.href) {
+            <a role="listitem" [href]="link.href" class="text-white/40 hover:text-[#0d9488] transition-colors text-sm">
+              {{ link.label }}
+            </a>
+          }
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
