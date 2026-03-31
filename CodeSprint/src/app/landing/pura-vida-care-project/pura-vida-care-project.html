@@ -154,7 +154,22 @@
         </div>
       </div>
     </div>
+    <!-- Botón CTA centrado -->
+    <div class="text-center mt-12 animate-fade-up">
+        <!-- Botón flotante estilo badge para ir a PuraVidaCare -->
+        <button
+          (click)="goToThePuraVidaCare()"
+          class="absolute -bottom-6 -left-6 bg-[#0d9488] text-white rounded-full p-5 shadow-2xl animate-float z-10 cursor-pointer transition-transform duration-200 hover:scale-110 group">
+          <div class="text-center">
+            <svg class="w-6 h-6 mx-auto mb-1 transition-transform duration-300 group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+            <div class="text-[11px] font-bold leading-tight">Ir a<br>PuraVida</div>
+          </div>
+        </button>
+    </div>
   </div>
+  
 
   <!-- Divisor SVG en ola oscura hacia la siguiente sección -->
   <div class="absolute bottom-0 left-0 right-0">

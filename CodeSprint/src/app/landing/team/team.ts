@@ -21,8 +21,8 @@ export class TeamComponent {
   team: TeamMember[] = [
     { name: 'STEPHANIA ABARCA ', role: 'Project Manager',          photo: 'team/stef.jpg' },
     { name: 'ISAAC JIMENEZ', role: 'Coordinador de Desarrollo', photo: 'team/isaac.jpg' },
-    { name: 'JOSHUA BENAVIDES ', role: 'Coordinador de Desarrollo', photo: '' },
-    { name: 'IGNACIO MOLINA ', role: 'Coordinador de Soporte',    photo: '' },
+    { name: 'JOSHUA BENAVIDES ', role: 'Coordinador de Desarrollo', photo: 'team/Joshua.jpg' },
+    { name: 'IGNACIO MOLINA ', role: 'Coordinador de Soporte',    photo: 'team/ignacio.jpg' },
     { name: 'SUSAN TORRES', role: 'Coordinador de QA',         photo: '' },
   ];
 }
