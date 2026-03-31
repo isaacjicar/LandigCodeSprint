@@ -23,6 +23,8 @@ export class TeamComponent {
     { name: 'ISAAC JIMENEZ', role: 'Coordinador de Desarrollo', photo: 'team/isaac.jpg' },
     { name: 'JOSHUA BENAVIDES ', role: 'Coordinador de Desarrollo', photo: 'team/Joshua.jpg' },
     { name: 'IGNACIO MOLINA ', role: 'Coordinador de Soporte',    photo: 'team/ignacio.jpg' },
-    { name: 'SUSAN TORRES', role: 'Coordinador de QA',         photo: '' },
+  
+    { name: 'SUSAN TORRES', role: 'Coordinador de QA',         photo: 'team/susan.jpg' },
+    
   ];
 }
