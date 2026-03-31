@@ -52,4 +52,8 @@ export class PuravidacareprojectsComponent {
 
   // Links del navbar dentro del mockup
   navItems = ['Servicios', 'Proveedores', 'Nosotros'];
+
+  goToThePuraVidaCare(): void {
+  window.location.href = 'http://localhost:4202';
+}
 }
